@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { GithubService } from '../../services/github';
+import { DetailsPage } from '../details/details';
 
 @Component({
   selector: 'page-home',
@@ -23,5 +24,9 @@ export class HomePage {
           err => console.error(err),
           () => console.log('getRepos completed')
       );
+  }
+
+  goToDetails(repo){
+    this.navCtrl.push(DetailsPage, { repo: repo });
   }
 }
